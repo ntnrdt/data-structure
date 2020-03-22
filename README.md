@@ -1,4 +1,4 @@
-Hey, in this project you'll find a few examples of binary searches.
+Hi, in this project you'll find a few examples of binary searches.
 
 BinarySearch:
   * Linear Search
