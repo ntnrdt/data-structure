@@ -7,9 +7,9 @@ namespace binary_tree
         static void Main(string[] args)
         {
             
-            //BinarySearch.Run();
-            //new BinarySearchTree();
-        
+            // BinarySearch.Run();
+            // new BinarySearchTree();
+            new BinarySearchTree_02();
         }
     }
 }

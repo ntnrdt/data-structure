@@ -1,33 +1,12 @@
-/*
- * Tree Traversals (PreOrder, InOrder, postOrder)
- * Traversal is a process to visit all the nodes of a tree. In this example, I
- * implemented three method which we use to traverse a tree.
-
-    PreOder Traversal:
-        * Visit the root
-        * Traverse the left subtree
-        * Traverse the right subtree
-
-    InOrder Traversal:
-        * Traverse the left subtree
-        * Visit the root
-        * Traverse the right subtree
-
-    PostOrder Traversal:
-        * Traverse the left subtree
-        * Traverse the right subtree
-        * Visit the root
- */
-
 using System;
 
 namespace binary_tree
 {
-    public class BinarySearchTree
+    public class BinarySearchTree_01
     {
         public Node Root { get; set; }
 
-        public BinarySearchTree()
+        public BinarySearchTree_01()
         {
             Run();
         }
@@ -86,27 +65,26 @@ namespace binary_tree
                 // Before any changes, set the variable before with the parent Node.
                 before = after;
 
-                if (value < after.Data) // If value is less than the parent node value, it's a left node
-                    after = after.LeftNode;
-                else if (value > after.Data) // If the value is bigger than the parent node value, it's a right node
-                    after = after.RightNode;
+                if (value < after.Key) // If value is less than the parent node value, it's a left node
+                    after = after.Left;
+                else if (value > after.Key) // If the value is bigger than the parent node value, it's a right node
+                    after = after.Right;
                 else // Else is the same value
                     return false;
             }
 
             // New node to be set in the Root (IF IT'S THE FIRST CALL) or it will be set in the Left or Right node from parent.
-            Node newNode = new Node();
-            newNode.Data = value;
+            Node newNode = new Node(value);
 
             if (this.Root == null) // If tree is empty (it will be when the function is called for the first time)
                 this.Root = newNode;
             else
             {
                 // If the input value is less thant the parent node value, set the new node to the left node on the parent node.
-                if (value < before.Data)
-                    before.LeftNode = newNode;
+                if (value < before.Key)
+                    before.Left = newNode;
                 else // Else set to the right node
-                    before.RightNode = newNode;
+                    before.Right = newNode;
             }
 
             return true;
@@ -120,6 +98,27 @@ namespace binary_tree
         public Node Find(int value)
         {
             return this.Find(value, this.Root);
+        }
+
+        /// <summary>
+        /// Recusively search for the node with the provided <paramref name="value"/>.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="parent"></param>
+        /// <returns></returns>
+        private Node Find(int value, Node parent)
+        {
+            if (parent != null)
+            {
+                if (value == parent.Key)
+                    return parent;
+                if (value < parent.Key)
+                    return Find(value, parent.Left);
+                if (value > parent.Key)
+                    return Find(value, parent.Right);
+            }
+
+            return null;
         }
 
         /// <summary>
@@ -142,66 +141,27 @@ namespace binary_tree
         {
             if (parent == null) return parent;
 
-            if (key < parent.Data)
-                parent.LeftNode = Remove(parent.LeftNode, key);
-            else if (key > parent.Data)
-                parent.RightNode = Remove(parent.RightNode, key);
+            if (key < parent.Key)
+                parent.Left = Remove(parent.Left, key);
+            else if (key > parent.Key)
+                parent.Right = Remove(parent.Right, key);
             else // if value is same as parent's value, then this is the node to be deleted
             {
 
                 // Node with only one child or no child
-                if (parent.LeftNode == null)
-                    return parent.RightNode;
-                else if (parent.RightNode == null)
-                    return parent.LeftNode;
+                if (parent.Left == null)
+                    return parent.Right;
+                else if (parent.Right == null)
+                    return parent.Left;
 
                 // Node with two children: Get the inorder successor (smallest in the right subtree)
-                parent.Data = MinValue(parent.RightNode);
+                parent.Key = MinValue(parent.Right);
 
                 // Delete the inorder successor
-                parent.RightNode = Remove(parent.RightNode, parent.Data);
+                parent.Right = Remove(parent.Right, parent.Key);
             }
 
             return parent;
-        }
-
-        /// <summary>
-        /// Navigate through the nodes until find the first available LeftNode and return its value.
-        /// </summary>
-        /// <param name="node"></param>
-        /// <returns></returns>
-        private int MinValue(Node node)
-        {
-            var minv = node.Data;
-
-            while (node.LeftNode != null)
-            {
-                minv = node.LeftNode.Data;
-                node = node.LeftNode;
-            }
-
-            return minv;
-        }
-
-        /// <summary>
-        /// Recusively search for the node with the provided <paramref name="value"/>.
-        /// </summary>
-        /// <param name="value"></param>
-        /// <param name="parent"></param>
-        /// <returns></returns>
-        private Node Find(int value, Node parent)
-        {
-            if (parent != null)
-            {
-                if (value == parent.Data)
-                    return parent;
-                if (value < parent.Data)
-                    return Find(value, parent.LeftNode);
-                if (value > parent.Data)
-                    return Find(value, parent.RightNode);
-            }
-
-            return null;
         }
 
         /// <summary>
@@ -226,7 +186,25 @@ namespace binary_tree
                 it will keep being calle until there's no more children to be checked and then return
                 the bigger side (left or right)
             */
-            return parent == null ? 0 : Math.Max(GetTreeDepth(parent.LeftNode), GetTreeDepth(parent.RightNode)) + 1;
+            return parent == null ? 0 : Math.Max(GetTreeDepth(parent.Left), GetTreeDepth(parent.Right)) + 1;
+        }
+
+        /// <summary>
+        /// Navigate through the nodes until find the first available LeftNode and return its value.
+        /// </summary>
+        /// <param name="node"></param>
+        /// <returns></returns>
+        private int MinValue(Node node)
+        {
+            var minv = node.Key;
+
+            while (node.Left != null)
+            {
+                minv = node.Left.Key;
+                node = node.Left;
+            }
+
+            return minv;
         }
 
         /// <summary>
@@ -237,9 +215,9 @@ namespace binary_tree
         {
             if (parent != null)
             {
-                Console.WriteLine($"{parent.Data} ");
-                TraversePreOrder(parent.LeftNode);
-                TraversePreOrder(parent.RightNode);
+                Console.WriteLine($"{parent.Key} ");
+                TraversePreOrder(parent.Left);
+                TraversePreOrder(parent.Right);
             }
         }
 
@@ -251,9 +229,9 @@ namespace binary_tree
         {
             if (parent != null)
             {
-                TraverseInOrder(parent.LeftNode);
-                Console.WriteLine($"{parent.Data} ");
-                TraverseInOrder(parent.RightNode);
+                TraverseInOrder(parent.Left);
+                Console.WriteLine($"{parent.Key} ");
+                TraverseInOrder(parent.Right);
             }
         }
 
@@ -265,17 +243,10 @@ namespace binary_tree
         {
             if (parent != null)
             {
-                TransversePostOrder(parent.LeftNode);
-                TransversePostOrder(parent.RightNode);
-                Console.WriteLine($"{parent.Data} ");
+                TransversePostOrder(parent.Left);
+                TransversePostOrder(parent.Right);
+                Console.WriteLine($"{parent.Key} ");
             }
         }
-    }
-
-    public class Node
-    {
-        public Node LeftNode { get; set; }
-        public Node RightNode { get; set; }
-        public int Data { get; set; }
     }
 }
