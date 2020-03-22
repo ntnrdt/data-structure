@@ -1,0 +1,11 @@
+/Users/natandutra/Projects/Exp/binary-tree/bin/Debug/netcoreapp3.1/binary-tree
+/Users/natandutra/Projects/Exp/binary-tree/bin/Debug/netcoreapp3.1/binary-tree.deps.json
+/Users/natandutra/Projects/Exp/binary-tree/bin/Debug/netcoreapp3.1/binary-tree.runtimeconfig.json
+/Users/natandutra/Projects/Exp/binary-tree/bin/Debug/netcoreapp3.1/binary-tree.runtimeconfig.dev.json
+/Users/natandutra/Projects/Exp/binary-tree/bin/Debug/netcoreapp3.1/binary-tree.dll
+/Users/natandutra/Projects/Exp/binary-tree/bin/Debug/netcoreapp3.1/binary-tree.pdb
+/Users/natandutra/Projects/Exp/binary-tree/obj/Debug/netcoreapp3.1/binary-tree.csprojAssemblyReference.cache
+/Users/natandutra/Projects/Exp/binary-tree/obj/Debug/netcoreapp3.1/binary-tree.AssemblyInfoInputs.cache
+/Users/natandutra/Projects/Exp/binary-tree/obj/Debug/netcoreapp3.1/binary-tree.AssemblyInfo.cs
+/Users/natandutra/Projects/Exp/binary-tree/obj/Debug/netcoreapp3.1/binary-tree.dll
+/Users/natandutra/Projects/Exp/binary-tree/obj/Debug/netcoreapp3.1/binary-tree.pdb
