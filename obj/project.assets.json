@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/natandutra/Projects/Exp/binary-tree/binary-tree.csproj",
-      "projectName": "binary-tree",
-      "projectPath": "/Users/natandutra/Projects/Exp/binary-tree/binary-tree.csproj",
+      "projectUniqueName": "/Users/natandutra/Projects/Exp/data-structure/data-structure.csproj",
+      "projectName": "data-structure",
+      "projectPath": "/Users/natandutra/Projects/Exp/data-structure/data-structure.csproj",
       "packagesPath": "/Users/natandutra/.nuget/packages/",
-      "outputPath": "/Users/natandutra/Projects/Exp/binary-tree/obj/",
+      "outputPath": "/Users/natandutra/Projects/Exp/data-structure/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

@@ -14,8 +14,8 @@ namespace DataStructure
             // LinkedListExample.Run();
             // StackExamples.Run();
             // QueueExample.Run();
-            // TriExample.Run();
             
+             TriExample.Run();
         }
     }
 }

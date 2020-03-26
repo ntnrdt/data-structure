@@ -6,12 +6,12 @@ namespace DataStructure
         public TrieNode[] children = new TrieNode[26];
         public bool isEndOfWord;
 
-        public TrieNode()
-        {
-            isEndOfWord = false;
+        // public TrieNode()
+        // {
+        //     isEndOfWord = false;
 
-            for (var i = 0; i < ALPHABET_SIZE; i++)
-                children[i] = null;
-        }
+        //     for (var i = 0; i < ALPHABET_SIZE; i++)
+        //         children[i] = null;
+        // }
     }
 }

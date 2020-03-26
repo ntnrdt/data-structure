@@ -59,24 +59,20 @@ namespace DataStructure
         /// <param name="key"></param>
         public static void Insert(string key)
         {
-            int level;
-            int length = key.Length;
-            int index;
+            var node = root;
 
-            TrieNode pCrawl = root;
-
-            for (level = 0; level < length; level++)
+            for (var level = 0; level < key.Length; level++)
             {
-                index = key[level] - 'a';
+                var index = key[level] - 'a';
 
-                if (pCrawl.children[index] == null)
-                    pCrawl.children[index] = new TrieNode();
+                if (node.children[index] == null)
+                    node.children[index] = new TrieNode();
 
-                pCrawl = pCrawl.children[index];
+                node = node.children[index];
             }
 
             // mark last node as leaf
-            pCrawl.isEndOfWord = true;
+            node.isEndOfWord = true;
         }
 
         /// <summary>
@@ -86,22 +82,19 @@ namespace DataStructure
         /// <returns></returns>
         public static bool Search(string key)
         {
-            int level;
-            int length = key.Length;
-            int index;
-            TrieNode pCrawl = root;
+            var node = root;
 
-            for (level = 0; level < length; level++)
+            for (var level = 0; level < key.Length; level++)
             {
-                index = key[level] - 'a';
+                var index = key[level] - 'a';
 
-                if (pCrawl.children[index] == null)
+                if (node.children[index] == null)
                     return false;
 
-                pCrawl = pCrawl.children[index];
+                node = node.children[index];
             }
 
-            return (pCrawl != null && pCrawl.isEndOfWord);
+            return (node != null && node.isEndOfWord);
         }
     }
 }
