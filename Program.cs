@@ -1,15 +1,21 @@
 using System;
 
-namespace binary_tree
+namespace DataStructure
 {
     public class Program
     {
         static void Main(string[] args)
         {
             
-            // BinarySearch.Run();
-            // new BinarySearchTree();
-            new BinarySearchTree_02();
+            // BinarySearchExample.Run();
+            // BinarySearchTreeExample.Run();
+            // BinarySearchTreeSimpleExample.Run();
+            // HashTableExample.Run();
+            // LinkedListExample.Run();
+            // StackExamples.Run();
+            // QueueExample.Run();
+            // TriExample.Run();
+            
         }
     }
 }

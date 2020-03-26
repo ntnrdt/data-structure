@@ -1,46 +1,41 @@
 using System;
 
-namespace binary_tree
+namespace DataStructure
 {
-    public class BinarySearchTree_01
+    public static class BinarySearchTreeExample
     {
-        public Node Root { get; set; }
+        public static TreeNode Root { get; set; }
 
-        public BinarySearchTree_01()
+        public static void Run()
         {
-            Run();
-        }
+            Add(15);
+            Add(2);
+            Add(7);
+            Add(3);
+            Add(10);
+            Add(5);
+            Add(8);
 
-        public void Run()
-        {
-            this.Add(15);
-            this.Add(2);
-            this.Add(7);
-            this.Add(3);
-            this.Add(10);
-            this.Add(5);
-            this.Add(8);
-
-            Node node = this.Find(5);
-            int depth = this.GetTreeDepth();
+            TreeNode node = Find(5);
+            int depth = GetTreeDepth();
 
             Console.WriteLine("PreOrder Traversal:");
-            this.TraversePreOrder(this.Root);
+            TraversePreOrder(Root);
             Console.WriteLine();
 
             Console.WriteLine("InOrder Traversal:");
-            this.TraverseInOrder(this.Root);
+            TraverseInOrder(Root);
             Console.WriteLine();
 
             Console.WriteLine("PostOrder Traversal:");
-            this.TransversePostOrder(this.Root);
+            TransversePostOrder(Root);
             Console.WriteLine();
 
-            this.Remove(7);
-            this.Remove(8);
+            Remove(7);
+            Remove(8);
 
             Console.WriteLine("PreOrder Traversal After Removing Operation:");
-            this.TraversePreOrder(this.Root);
+            TraversePreOrder(Root);
             Console.WriteLine();
 
             Console.ReadLine();
@@ -51,13 +46,13 @@ namespace binary_tree
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public bool Add(int value)
+        public static bool Add(int value)
         {
             // Before starts with the Root Node and later will be the PARENT Node.
-            Node before = null;
+            TreeNode before = null;
 
             // Initially is the Root and then navigates until the correct Node.
-            Node after = this.Root;
+            TreeNode after = Root;
 
             // Navigates through the Nodes until sets the variable after with the correct New Node (null Node)
             while (after != null)
@@ -74,10 +69,10 @@ namespace binary_tree
             }
 
             // New node to be set in the Root (IF IT'S THE FIRST CALL) or it will be set in the Left or Right node from parent.
-            Node newNode = new Node(value);
+            TreeNode newNode = new TreeNode(value);
 
-            if (this.Root == null) // If tree is empty (it will be when the function is called for the first time)
-                this.Root = newNode;
+            if (Root == null) // If tree is empty (it will be when the function is called for the first time)
+                Root = newNode;
             else
             {
                 // If the input value is less thant the parent node value, set the new node to the left node on the parent node.
@@ -95,9 +90,9 @@ namespace binary_tree
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public Node Find(int value)
+        public static TreeNode Find(int value)
         {
-            return this.Find(value, this.Root);
+            return Find(value, Root);
         }
 
         /// <summary>
@@ -106,7 +101,7 @@ namespace binary_tree
         /// <param name="value"></param>
         /// <param name="parent"></param>
         /// <returns></returns>
-        private Node Find(int value, Node parent)
+        private static TreeNode Find(int value, TreeNode parent)
         {
             if (parent != null)
             {
@@ -125,10 +120,10 @@ namespace binary_tree
         /// Remove Node based on its value
         /// </summary>
         /// <param name="value"></param>
-        public void Remove(int value)
+        public static void Remove(int value)
         {
             // Starting from the root, it will navigate throu the nodes until find and delete the node with the value provided.
-            Remove(this.Root, value);
+            Remove(Root, value);
         }
 
         /// <summary>
@@ -137,7 +132,7 @@ namespace binary_tree
         /// <param name="parent"></param>
         /// <param name="key"></param>
         /// <returns></returns>
-        private Node Remove(Node parent, int key)
+        private static TreeNode Remove(TreeNode parent, int key)
         {
             if (parent == null) return parent;
 
@@ -168,9 +163,9 @@ namespace binary_tree
         /// Navigate through the Tree and return its length
         /// </summary>
         /// <returns></returns>
-        public int GetTreeDepth()
+        public static int GetTreeDepth()
         {
-            return this.GetTreeDepth(this.Root);
+            return GetTreeDepth(Root);
         }
 
         /// <summary>
@@ -178,7 +173,7 @@ namespace binary_tree
         /// </summary>
         /// <param name="parent"></param>
         /// <returns></returns>
-        public int GetTreeDepth(Node parent)
+        public static int GetTreeDepth(TreeNode parent)
         {
             /* 
                 The function GetTreeDepth will be called giving the Left and Right node, 
@@ -194,7 +189,7 @@ namespace binary_tree
         /// </summary>
         /// <param name="node"></param>
         /// <returns></returns>
-        private int MinValue(Node node)
+        private static int MinValue(TreeNode node)
         {
             var minv = node.Key;
 
@@ -211,7 +206,7 @@ namespace binary_tree
         /// Root -> Left Node -> Right Node
         /// </summary>
         /// <param name="parent"></param>
-        public void TraversePreOrder(Node parent)
+        public static void TraversePreOrder(TreeNode parent)
         {
             if (parent != null)
             {
@@ -225,7 +220,7 @@ namespace binary_tree
         /// Left Node -> Root -> Right Node
         /// </summary>
         /// <param name="parent"></param>
-        public void TraverseInOrder(Node parent)
+        public static void TraverseInOrder(TreeNode parent)
         {
             if (parent != null)
             {
@@ -239,7 +234,7 @@ namespace binary_tree
         /// Left Node -> Right Node -> Root
         /// </summary>
         /// <param name="parent"></param>
-        public void TransversePostOrder(Node parent)
+        public static void TransversePostOrder(TreeNode parent)
         {
             if (parent != null)
             {

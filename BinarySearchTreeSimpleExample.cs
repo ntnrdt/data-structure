@@ -1,17 +1,12 @@
 using System;
 
-namespace binary_tree
+namespace DataStructure
 {
-    public class BinarySearchTree_02
+    public static class BinarySearchTreeSimpleExample
     {
-        Node Root;
+        public static TreeNode Root;
 
-        public BinarySearchTree_02()
-        {
-            Run();
-        }
-
-        public void Run()
+        public static void Run()
         {
 
             /* Let us create following BST  
@@ -22,47 +17,47 @@ namespace binary_tree
                20 40 60 80 
             */
 
-            this.Insert(50);
-            this.Insert(30);
-            this.Insert(20);
-            this.Insert(40);
-            this.Insert(70);
-            this.Insert(60);
-            this.Insert(80);
+            Insert(50);
+            Insert(30);
+            Insert(20);
+            Insert(40);
+            Insert(70);
+            Insert(60);
+            Insert(80);
 
             Console.WriteLine("Preorder traversal of the given tree");
-            this.PreOrder();
+            PreOrder();
             Console.WriteLine();
 
             Console.WriteLine("Inorder traversal of the given tree");
-            this.InOrder();
+            InOrder();
             Console.WriteLine();
 
             Console.WriteLine("PostOrder traversal of the given tree");
-            this.PostOrder();
+            PostOrder();
             Console.WriteLine();
 
             Console.WriteLine("Delete 20");
-            this.Delete(20);
+            Delete(20);
             Console.WriteLine("Inorder traversal of the modified tree");
-            this.InOrder();
+            InOrder();
 
             Console.WriteLine("\nDelete 30");
-            this.Delete(30);
+            Delete(30);
             Console.WriteLine("Inorder traversal of the modified tree");
-            this.InOrder();
+            InOrder();
 
             Console.WriteLine("\nDelete 50");
-            this.Delete(50);
+            Delete(50);
             Console.WriteLine("Inorder traversal of the modified tree");
-            this.InOrder();
+            InOrder();
         }
 
         /// <summary>
         /// Giving a key, it will add it to the Tree
         /// </summary>
         /// <param name="key"></param>
-        public void Insert(int key)
+        public static void Insert(int key)
         {
             Root = InsertRecursive(Root, key);
         }
@@ -74,12 +69,12 @@ namespace binary_tree
         /// <param name="node">Current Node</param>
         /// <param name="key">Key to be added to new node</param>
         /// <returns></returns>
-        public Node InsertRecursive(Node node, int key)
+        public static TreeNode InsertRecursive(TreeNode node, int key)
         {
             // If the node is empty, creates node
             if (node == null)
             {
-                node = new Node(key);
+                node = new TreeNode(key);
                 return node;
             }
 
@@ -102,7 +97,7 @@ namespace binary_tree
         /// Delete the node holding the giving key.
         /// </summary>
         /// <param name="key">Key of the node that must be deleted.</param>
-        public void Delete(int key)
+        public static void Delete(int key)
         {
             Root = DeleteRecursive(Root, key);
         }
@@ -113,7 +108,7 @@ namespace binary_tree
         /// <param name="node">Current Node.</param>
         /// <param name="key">Key of the node that must be deleted.</param>
         /// <returns></returns>
-        public Node DeleteRecursive(Node node, int key)
+        public static TreeNode DeleteRecursive(TreeNode node, int key)
         {
             // If there's no node, return.
             if (node == null)
@@ -153,7 +148,7 @@ namespace binary_tree
         /// </summary>
         /// <param name="node">Current Node</param>
         /// <returns></returns>
-        public int MinValue(Node node)
+        public static int MinValue(TreeNode node)
         {
             int minv = node.Key;
 
@@ -171,7 +166,7 @@ namespace binary_tree
         /// <summary>
         /// Pre order log
         /// </summary>
-        public void PreOrder()
+        public static void PreOrder()
         {
             PreOrderRecursive(Root);
         }
@@ -180,7 +175,7 @@ namespace binary_tree
         /// Will print the pre order tree
         /// </summary>
         /// <param name="node"></param>
-        public void PreOrderRecursive(Node node)
+        public static void PreOrderRecursive(TreeNode node)
         {
             if (node != null)
             {
@@ -193,7 +188,7 @@ namespace binary_tree
         /// <summary>
         /// In order log
         /// </summary>
-        public void InOrder()
+        public static void InOrder()
         {
             InOrderRecursive(Root);
         }
@@ -202,7 +197,7 @@ namespace binary_tree
         /// Will print the in order tree
         /// </summary>
         /// <param name="node"></param>
-        public void InOrderRecursive(Node node)
+        public static void InOrderRecursive(TreeNode node)
         {
             if (node != null)
             {
@@ -215,7 +210,7 @@ namespace binary_tree
         /// <summary>
         /// Post order tree
         /// </summary>
-        public void PostOrder()
+        public static void PostOrder()
         {
             PostOrderRecursive(Root);
         }
@@ -224,7 +219,7 @@ namespace binary_tree
         /// Will print the post order tree
         /// </summary>
         /// <param name="node"></param>
-        public void PostOrderRecursive(Node node)
+        public static void PostOrderRecursive(TreeNode node)
         {
             if (node != null)
             {

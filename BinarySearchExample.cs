@@ -1,8 +1,8 @@
 using System;
 
-namespace binary_tree
+namespace DataStructure
 {
-    public static class BinarySearch
+    public static class BinarySearchExample
     {
         /// <summary>
         /// Run Binary Search
@@ -22,7 +22,6 @@ namespace binary_tree
 
         /// <summary>
         /// Giving an (ordered or not) array, it will search from start to end where the giving key is a match.
-        /// 
         /// </summary>
         /// <param name="array">Number array</param>
         /// <param name="key">Key to be found</param>
