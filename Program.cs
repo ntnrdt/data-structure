@@ -18,9 +18,10 @@ namespace DataStructure
             // GraphExample.Run();
             // VectorExample.Run();
             // BinaryHeapExample.Run();
-
             // BreadthFirstSearchExample.Run();
-            DepthFirstSearchExample.Run();
+            // DepthFirstSearchExample.Run();
+
+            MergeSortExample.Run();
         }
     }
 }
