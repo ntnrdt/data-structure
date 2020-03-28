@@ -15,8 +15,12 @@ namespace DataStructure
             // StackExamples.Run();
             // QueueExample.Run();
             // TriExample.Run();
+            // GraphExample.Run();
+            // VectorExample.Run();
+            // BinaryHeapExample.Run();
 
-            GraphExample.Run();
+            // BreadthFirstSearchExample.Run();
+            DepthFirstSearchExample.Run();
         }
     }
 }

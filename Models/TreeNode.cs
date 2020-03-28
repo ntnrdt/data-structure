@@ -11,5 +11,12 @@ namespace DataStructure
             Key = key;
             Left = Right = null;
         }
+
+        public TreeNode(int key, TreeNode left, TreeNode right)
+        {
+            Key = key;
+            Left = left;
+            Right = right;
+        }
     }
 }
