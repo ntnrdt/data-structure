@@ -11,6 +11,12 @@ Binary Search:
 
   https://www.geeksforgeeks.org/binary-search-tree-set-2-delete/
 
+Quick Sort:
+
+  https://www.youtube.com/watch?v=wygsfgtpApI
+  
+  https://www.youtube.com/watch?v=gCE108OWnro
+
 
 Graph:
 

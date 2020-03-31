@@ -21,7 +21,9 @@ namespace DataStructure
             // BreadthFirstSearchExample.Run();
             // DepthFirstSearchExample.Run();
 
-            MergeSortExample.Run();
+            // MergeSortExample.Run();
+            // QuickSortExample.Run();
+            QuickSortGenericExample.Run();
         }
     }
 }
