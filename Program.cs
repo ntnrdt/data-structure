@@ -23,7 +23,10 @@ namespace DataStructure
 
             // MergeSortExample.Run();
             // QuickSortExample.Run();
-            QuickSortGenericExample.Run();
+            // QuickSortGenericExample.Run();
+
+            // Test.Run();
+            TripletesExample.Run();
         }
     }
 }
